@@ -7,15 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="CourseRepo.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="IRepository.cs~RF931448.TMP" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorHero.Database\BlazorHero.Database.csproj" />
+    <ProjectReference Include="..\BlazorHero.Shared\BlazorHero.Shared.csproj" />
   </ItemGroup>
 
 </Project>

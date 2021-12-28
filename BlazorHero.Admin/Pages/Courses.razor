@@ -1,0 +1,25 @@
+﻿@page "/courses"
+<h3>My Courses!!</h3>
+
+@*<hr />
+
+@{
+    foreach(var course in courses.Take(10))
+    {
+        <b>@course.Title</b> <br /><br />
+    }
+}
+
+@code
+{
+    private List<CourseModel> courses { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        courses = _context.Courses.ToList().Select(x =>
+        {
+             new CourseModel() {Title = x.Title};
+        }).ToList();
+    }
+}
+*@
