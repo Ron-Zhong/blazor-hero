@@ -1,13 +1,13 @@
 ﻿@page "/courses"
 @using Microsoft.EntityFrameworkCore
-@inject IRepository<CourseModel> Repo
+@inject IRepository<CourseModel> _repository
 
 <h3>My Courses!!</h3>
 
 <hr />
 
 @{
-    foreach(var course in courses.Take(10))
+    foreach(var course in MyCourses.Take(10))
     {
         <b>@course.Title</b> <br /><br />
     }
@@ -15,10 +15,11 @@
 
 @code
 {
-    private List<CourseModel> courses { get; set; } = new();
+    private List<CourseModel> MyCourses { get; set; } = new();
 
     protected override async Task OnInitializedAsync()
     {
-        courses = await Repo.QueryAll().ToListAsync();
+        MyCourses = await _repository.QueryAll()
+            .ToListAsync();
     }
 }

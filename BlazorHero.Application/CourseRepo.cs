@@ -18,7 +18,9 @@
                     Title = x.Title,
                     Status = x.Status,
                     CourseNo = x.CourseNo,
+                    CreatedAt = x.CreatedAt,
                     Thumbnail = x.Thumbnail,
+                    Profession = x.Profession,
                     Introduction = x.Introduction,
                 })
                 .AsNoTracking()
@@ -34,7 +36,9 @@
                     Status = x.Status,
                     Content = x.Content,
                     CourseNo = x.CourseNo,
+                    CreatedAt = x.CreatedAt,
                     Thumbnail = x.Thumbnail,
+                    Profession = x.Profession,
                     Description = x.Description,
                     Introduction = x.Introduction,
                 })

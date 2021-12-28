@@ -1,12 +1,12 @@
 ﻿@page "/courses"
-@inject ApiClient Client;
+@inject ApiClient _client;
 
-<h3>My Courses!!</h3>
+<h3>My Courses!! (WebAssembly)</h3>
 
 <hr />
 
 @{
-    foreach(var course in courses.Take(10))
+    foreach(var course in MyCourses.Take(10))
     {
         <b>@course.Title</b> <br /><br />
     }
@@ -14,10 +14,10 @@
 
 @code
 {
-    private List<CourseModel> courses { get; set; } = new();
+    private List<CourseModel> MyCourses { get; set; } = new();
 
     protected override async Task OnInitializedAsync()
     {
-        courses = await Client.GetCoursesAsync();
+        MyCourses = await _client.GetCoursesAsync();
     }
 }
