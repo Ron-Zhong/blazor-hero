@@ -1,16 +1,18 @@
-using BlazorHero.Database;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+using BlazorHero.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var conn = builder.Configuration.GetConnectionString("Database");
+builder.Services.AddDbContext<DBContext>(options => options.UseSqlServer(conn));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var conn = builder.Configuration.GetConnectionString("Database");
-builder.Services.AddDbContext<DBContext>(options =>
-    options.UseSqlServer(conn), ServiceLifetime.Scoped);
-
+builder.Services.AddCors(options =>
+    options.AddDefaultPolicy(
+        builder => builder.WithOrigins("https://localhost:5001")
+    )
+);
 
 var app = builder.Build();
 
@@ -21,14 +23,15 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors();
 
-app.MapGet("/courses", async (DBContext context) => 
+app.MapGet("/courses", async (DBContext context) =>
         await context.Courses
                         .Where(x => !x.IsDeleted)
                         .Take(20)
                         .AsNoTracking()
                         .ToListAsync())
-    .WithName("Courses");
+    .WithName("GetCourses");
 
 
 app.MapGet("/courses/{id}", async (DBContext context, int id) =>
@@ -36,6 +39,6 @@ app.MapGet("/courses/{id}", async (DBContext context, int id) =>
                         .Where(x => x.CourseNo == id)
                         .AsNoTracking()
                         .FirstOrDefaultAsync())
-    .WithName("CourseById");
+    .WithName("GetCourseById");
 
 app.Run();

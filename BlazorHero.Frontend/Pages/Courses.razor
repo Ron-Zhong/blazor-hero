@@ -1,0 +1,13 @@
+﻿@page "/courses"
+@inject ApiClient Client;
+
+<h3>My Courses!!</h3>
+
+<hr />
+
+@{
+    foreach(var course in courses.Take(10))
+    {
+        <b>@course.Title</b> <br /><br />
+    }
+}
