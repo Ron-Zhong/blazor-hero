@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorHero", "BlazorHero\BlazorHero.csproj", "{D1B8A2A0-5661-4C35-BAB8-63D9B47A6AA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RonBlazor", "BlazorHero\RonBlazor.csproj", "{D1B8A2A0-5661-4C35-BAB8-63D9B47A6AA8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{49043E1B-E1CD-4BBD-B7AA-F05DC3449C27}"
 	ProjectSection(SolutionItems) = preProject
@@ -56,6 +56,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorHero.Frontend", "BlazorHero.Frontend\BlazorHero.Frontend.csproj", "{F3DFB6D5-25E0-4F5E-95C3-3CC18FB1ED17}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorHero.Admin", "BlazorHero.Admin\BlazorHero.Admin.csproj", "{562F502B-AEFE-4D19-B88A-0139001DCA72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "30 Static", "30 Static", "{DFD13780-1E5C-4BE3-AF8D-EA6221CF419A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -124,6 +126,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{D1B8A2A0-5661-4C35-BAB8-63D9B47A6AA8} = {DFD13780-1E5C-4BE3-AF8D-EA6221CF419A}
 		{9BE7EBA5-DA72-4744-94EE-F10C9F008444} = {CACF10CE-8E4F-422B-92BA-48C40728A68F}
 		{7F039F72-9609-4CA5-9648-A5555BD4D51E} = {CACF10CE-8E4F-422B-92BA-48C40728A68F}
 		{CCFF5901-1B70-4812-87FF-E3E2BA26DD5B} = {CACF10CE-8E4F-422B-92BA-48C40728A68F}
