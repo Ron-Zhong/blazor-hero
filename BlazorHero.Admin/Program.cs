@@ -11,8 +11,10 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 
+//inject custom services
 var conn = builder.Configuration.GetConnectionString("Database");
 builder.Services.AddDbContext<DBContext>(options => options.UseSqlServer(conn));
+builder.Services.AddScoped<IRepository<CourseModel>, CourseRepo>();
 
 var app = builder.Build();
 

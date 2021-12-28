@@ -1,7 +1,10 @@
 ﻿@page "/courses"
+@using Microsoft.EntityFrameworkCore
+@inject IRepository<CourseModel> Repo
+
 <h3>My Courses!!</h3>
 
-@*<hr />
+<hr />
 
 @{
     foreach(var course in courses.Take(10))
@@ -16,10 +19,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        courses = _context.Courses.ToList().Select(x =>
-        {
-             new CourseModel() {Title = x.Title};
-        }).ToList();
+        courses = await Repo.QueryAll().ToListAsync();
     }
 }
-*@

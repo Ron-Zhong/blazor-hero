@@ -5,11 +5,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
+//inject custom services
 var conn = builder.Configuration.GetConnectionString("Database");
 builder.Services.AddDbContext<DBContext>(options => options.UseSqlServer(conn));
 builder.Services.AddScoped<IRepository<CourseModel>, CourseRepo>();
 
+//add CORS policies
 builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
         builder => builder.WithOrigins("https://localhost:5001")
@@ -24,12 +25,13 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseCors();
 
-app.MapGet("/courses", async (IRepository<CourseModel> repo) =>
-        await repo.QueryAll().ToListAsync())
+//setup custom Api calls
+app.MapGet("/api/courses", 
+        async (IRepository<CourseModel> repo) => await repo.QueryAll().ToListAsync())
     .WithName("GetCourses");
 
-app.MapGet("/courses/{id}", async (IRepository<CourseModel> repo, int id) =>
-        await repo.GetAsync(id))
+app.MapGet("/api/courses/{id}", 
+        async (IRepository<CourseModel> repo, int id) => await repo.GetAsync(id))
     .WithName("GetCourseById");
 
 app.Run();

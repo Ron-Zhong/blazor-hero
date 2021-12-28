@@ -11,7 +11,7 @@ public class ApiClient
 
     public async Task<List<CourseModel>> GetCoursesAsync()
     {
-        var endpoint = $"/courses/";
+        var endpoint = $"/api/courses/";
         var courses = await Http.GetFromJsonAsync<List<CourseModel>>(endpoint);
 
         return courses ?? new List<CourseModel>();
@@ -19,7 +19,7 @@ public class ApiClient
 
     public async Task<CourseModel> GetCourseByIdAsync(int id)
     {
-        var endpoint = $"/courses/{id}";
+        var endpoint = $"/api/courses/{id}";
         var courses = await Http.GetFromJsonAsync<CourseModel>(endpoint);
 
         return courses ?? new CourseModel();

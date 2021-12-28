@@ -11,3 +11,13 @@
         <b>@course.Title</b> <br /><br />
     }
 }
+
+@code
+{
+    private List<CourseModel> courses { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        courses = await Client.GetCoursesAsync();
+    }
+}
