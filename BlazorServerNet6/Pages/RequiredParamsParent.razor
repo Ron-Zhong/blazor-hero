@@ -1,0 +1,15 @@
+﻿@page "/required-params"
+
+<h3>Required Parameters示範</h3>
+
+<hr/>
+
+<h5>Child component (沒有 attribute values => build warnings)</h5>
+
+<RequiredParamsChild  />
+
+<h5>Child component (有 attribute values)</h5>
+
+<RequiredParamsChild 
+    Title="Set by Parent"
+    Body="@(new PanelBody() { Text = "Set by parent.", Style = "italic" })" />

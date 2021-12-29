@@ -1,0 +1,37 @@
+﻿@page "/control-head-content"
+
+<h3>Control &lt;head&gt; content示範</h3>
+
+<hr/>
+
+<p>
+    Title: @title
+</p>
+
+<p>
+    Description: @description
+</p>
+
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<PageTitle>@title</PageTitle>
+
+<HeadContent>
+    <meta name="description" content="@description">
+</HeadContent>
+
+@code {
+    private int currentCount = 0;
+
+    private string title = "Title set by component";
+    private string description = "Description set by component";
+
+    private void IncrementCount()
+    {
+        currentCount++;
+        
+        title = $"Title => {currentCount} - {DateTime.Now.ToLongTimeString()}";
+        description = $"Description => {currentCount} - {DateTime.Now.ToLongTimeString()}";
+    }
+}

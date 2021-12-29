@@ -1,0 +1,35 @@
+﻿@page "/query-strings"
+
+<h3>Query Strings示範</h3>
+
+<hr/>
+
+<p>Movie: @Movie</p>
+
+<p>Ratings: @Ratings</p>
+
+@if (Actors is not null)
+{
+    <p>Actors:</p>
+
+    <ul>
+        @foreach (var actor in Actors)
+        {
+            <li>@actor</li>
+        }
+    </ul>
+}
+
+@code {
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public string? Movie { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery]
+    public int? Ratings { get; set; }
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "actor")]
+    public string[]? Actors { get; set; }
+}
