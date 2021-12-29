@@ -13,7 +13,15 @@
         </div>
 
         <article class="content px-4">
-            @Body
+            <ErrorBoundary>
+                <ChildContent>
+                    @Body
+                </ChildContent>
+                <ErrorContent>
+                    <p>Oh yeah!! No more crash 看到了嗎？ </p>
+                    <p>This is the "Error Boundary" you are looking for!!</p>
+                </ErrorContent>
+            </ErrorBoundary>
         </article>
     </main>
 </div>
