@@ -1,4 +1,5 @@
 using BlazorServerNet6.Data;
+using BlazorServerNet6.Pages;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
