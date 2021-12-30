@@ -1,5 +1,4 @@
 Install-Package Microsoft.EntityFrameworkCore.SqlServer
-dotnet tool update --global dotnet-ef
 Install-Package Microsoft.EntityFrameworkCore.Design
 Install-Package Microsoft.EntityFrameworkCore.Tools
 

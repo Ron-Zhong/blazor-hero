@@ -5,11 +5,6 @@ namespace BlazorHero.Database
 {
     public partial class Course
     {
-        public Course()
-        {
-            Enrollments = new HashSet<Enrollment>();
-        }
-
         public Guid Id { get; set; }
         public bool IsDeleted { get; set; }
         public string? UpdatedBy { get; set; }
@@ -40,34 +35,5 @@ namespace BlazorHero.Database
         public string? Introduction { get; set; }
         public string? Description { get; set; }
         public string? Content { get; set; }
-        public string? Length { get; set; }
-        public string? Sponsor { get; set; }
-        public string? ProgramCode { get; set; }
-        public string? ProgramProvider { get; set; }
-        public string? Cpdpoints { get; set; }
-        public bool HavingQuiz { get; set; }
-        public string? QuizIntro { get; set; }
-        public string? QuizContext { get; set; }
-        public double PassingScore { get; set; }
-        public string? LegacyUrl { get; set; }
-        public Guid? CertificateId { get; set; }
-        public bool? IsLimitedSeats { get; set; }
-        public int PrivateEnrolled { get; set; }
-        public int PublicEnrolled { get; set; }
-        public string? Remarks { get; set; }
-        public string? LegacyId { get; set; }
-        public bool? HavingCertificate { get; set; }
-        public string? QuizFooter { get; set; }
-        public int MaxAttempts { get; set; }
-        public string? AttributionMode { get; set; }
-        public DateTime? PausedAt { get; set; }
-        public DateTime? InterstitialAdsEndAt { get; set; }
-        public string? InterstitialAdsImgUrl { get; set; }
-        public DateTime? InterstitialAdsStartAt { get; set; }
-        public bool? HavingInterstitialAds { get; set; }
-        public bool IsMimsBrand { get; set; }
-
-        public virtual Certificate? Certificate { get; set; }
-        public virtual ICollection<Enrollment> Enrollments { get; set; }
     }
 }
